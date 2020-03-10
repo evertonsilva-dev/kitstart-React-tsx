@@ -1,7 +1,13 @@
 import React from "react";
+import { Button } from "src/styles/components";
+import { useTheme } from "src/ThemeContext";
 
-interface Props {}
+export default function Home() {
+  const themeToggle = useTheme();
 
-export default function Home(props: Props) {
-  return <div></div>;
+  return (
+    <div>
+      <Button onClick={() => themeToggle.toggle()}>Toggle Theme</Button>
+    </div>
+  );
 }

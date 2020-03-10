@@ -1,9 +1,16 @@
 import React from "react";
 import { Router } from "react-router-dom";
+import { withTheme } from "styled-components";
 import Routes from "./router";
 import history from "./router/history";
 import GlobalStyle from "./styles";
-const App: React.FC = () => {
+
+interface Props {
+  theme: {
+    mode: String;
+  };
+}
+const App = (props: Props) => {
   return (
     <>
       <Router history={history}>
@@ -14,4 +21,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default withTheme(App);
