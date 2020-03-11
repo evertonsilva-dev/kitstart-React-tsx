@@ -13,6 +13,7 @@ export const MyThemeProvider = ({ children }: Props) => {
   const toggle = () => {
     const mode = themeState.mode === "light" ? `dark` : `light`;
     setThemeState({ mode: mode });
+    localStorage.setItem("mode", mode);
   };
   const [themeState, setThemeState] = useState({
     mode: "light"
@@ -21,7 +22,9 @@ export const MyThemeProvider = ({ children }: Props) => {
     <ThemeToggleContext.Provider value={{ toggle: toggle }}>
       <ThemeProvider
         theme={{
-          mode: themeState.mode
+          mode: localStorage.getItem("mode")
+            ? localStorage.getItem("mode")
+            : themeState.mode
         }}
       >
         <>{children}</>
