@@ -4,6 +4,7 @@
 
 ## Instalação
 
-...
+```
 yarn install && yarn start
-...
+
+```
